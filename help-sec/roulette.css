@@ -1,0 +1,114 @@
+.rw {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.rw-sb {
+    justify-content: space-between;
+}
+
+.relative {
+    position: relative;
+}
+
+#game .card-body label p {
+    margin: 0px;
+}
+
+@media screen and (min-width:320px) {
+    .row-1-10\@xs>* {width: 10%;}
+}
+@media screen and (min-width:640px) {
+    .game_zone .padding {
+        padding-right: 20px;
+    }
+}
+.progress_wr {
+    border: none;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    width: 100%;
+	margin-bottom: 4px;
+}
+.progress_bar {
+    height: 5px;
+    border: none;
+    border-radius: 5px;
+	background-color: #ff9f18;
+}
+
+.game_zone .field_wrapper {
+    padding: 3px;
+}
+.game_zone .field_wrapper .field {
+    border: 1px dashed #979797;
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.game_zone.result .field_wrapper .field {
+  cursor: default;
+}
+.game_zone.result .field_wrapper .field.win {
+  background-color: #ff9f18;
+  border: none;
+}
+.game_zone:not(.result) .field:hover {
+    background-color: #ff9f18;
+    border: none;
+}
+.game_zone .active, input.dib_input[type=checkbox]:checked + label.dib_label .field {
+    background-color: #ff9f18;
+    border: none;
+}
+.game_zone .active, input.dib_input[type=checkbox]:checked + label.dib_label .field {
+    background-color: #ff9f18;
+    border: none;
+}
+.rw-margin {
+    margin-right: -10px;
+    margin-left: -10px;
+}
+.rw-margin-ch {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.grey_field {
+    background-color: rgba(0,0,0,0.03);
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.new_btn {
+    border-bottom: 2px solid #F0AD4E;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    float: right;
+    cursor: pointer;
+}
+.new_btn i {
+    margin-right: 6px;
+    font-size: 12px;
+}
+/* #notice_finished_dibs {
+    position: absolute;
+    top: -20px;
+    right: 0px;
+} */
+/* .gift {
+    position: absolute;
+    top: 206px;
+    left: 324px;
+}
+
+.gift img {
+    width: 40px;
+} */
+.red_text {
+	color: #d43f3a;
+}
