@@ -1,7 +1,8 @@
-const products = [
+const shops = [
     {
+        id:1,
         image: 'placeholder',
-        name: "Insane product 55",
+        name: "Insane shop 55",
         parameters: {
             reliable: true,
             ready: true,
@@ -15,8 +16,9 @@ const products = [
         price: 1000,
     },
     {
+        id:2,
         image: 'placeholder',
-        name: "Insane product 40",
+        name: "Insane shop 40",
         parameters: {
             reliable: true,
             ready: true,
@@ -26,8 +28,9 @@ const products = [
         price: 2000
     },
     {
+        id:3,
         image: 'placeholder',
-        name: "Insane product 80",
+        name: "Insane shop 80",
         parameters: {
             reliable: true,
             ready: true,
@@ -41,34 +44,34 @@ const products = [
 
 window.onload = () => {
     console.log('it\'s works');
-    setCatalog('.index-page__products', products, true);
+    setCatalog('.index-page__shops', shops, true);
 }
 
 
-function setCatalog(selector, products, is_adding = false) {
+function setCatalog(selector, shops, is_adding = false) {
     const parent = document.querySelector(selector);
 
     if (!is_adding) parent.innerHTML = '';
-    products.forEach(product => {
-        parent.appendChild(generateProduct(product));
+    shops.forEach(shop => {
+        parent.appendChild(generateProduct(shop));
     })
 
 }
 
 
-function generateProduct(product) {
-    const productDOM = document.createElement('div');
-    productDOM.className = 'col-xs-6 col-sm-3 maincard';
-    const product_inner = document.createElement('div');
-    product_inner.className = 'maincart mt-2';
-    productDOM.appendChild(product_inner);
-    const product_cart = document.createElement('div');
-    product_cart.className = 'cart';
-    product_inner.appendChild(product_cart);
+function generateProduct(shop) {
+    const shopDOM = document.createElement('div');
+    shopDOM.className = 'col-xs-6 col-sm-3 maincard';
+    const shop_inner = document.createElement('div');
+    shop_inner.className = 'maincart mt-2';
+    shopDOM.appendChild(shop_inner);
+    const shop_cart = document.createElement('div');
+    shop_cart.className = 'cart';
+    shop_inner.appendChild(shop_cart);
 
     const inner_div = document.createElement('div');
 
-    product_cart.appendChild(inner_div);
+    shop_cart.appendChild(inner_div);
 
 
     const name_row = document.createElement('div');
@@ -76,7 +79,7 @@ function generateProduct(product) {
     inner_div.appendChild(name_row);
 
     const name = document.createElement('a');
-    name.innerText = product.name;
+    name.innerText = shop.name;
     name.target = '_blank';
     name_row.appendChild(name);
     const name_icon = document.createElement('a')
@@ -114,7 +117,7 @@ function generateProduct(product) {
 //
     const parameters = document.createElement('div');
     parameters.className = 'mt-1 shop_deal'
-    if (product.parameters.reliable) {
+    if (shop.parameters.reliable) {
         const reliable = document.createElement('div');
         reliable.className = 'rw row_sb trust';
         reliable.setAttribute('active', true);
@@ -138,7 +141,7 @@ function generateProduct(product) {
         parameters.appendChild(reliable);
     }
 
-    if (product.parameters.ready) {
+    if (shop.parameters.ready) {
         const reliable = document.createElement('div');
         reliable.className = 'rw row_sb moment';
         reliable.setAttribute('active', true);
@@ -162,7 +165,7 @@ function generateProduct(product) {
         parameters.appendChild(reliable);
     }
 
-    if (product.parameters.reliable) {
+    if (shop.parameters.reliable) {
         const reliable = document.createElement('div');
         reliable.className = 'rw row_sb preorder';
         reliable.setAttribute('active', true);
@@ -178,11 +181,7 @@ function generateProduct(product) {
         const checkbox_icon = document.createElement('i');
         checkbox_icon.className = 'check';
         checkbox.appendChild(checkbox_icon);
-
-
         reliable.appendChild(checkbox);
-
-
         parameters.appendChild(reliable);
     }
 
@@ -191,39 +190,42 @@ function generateProduct(product) {
 
 //
     const final_button = document.createElement('a');
+    final_button.onclick = () => localStorage.setItem("savedProduct", JSON.stringify(shop));
+
+    final_button.href = `/help.html?product_id=${shop.id}`;
     final_button.target = '_blank';
     final_button.className = 'btn btn-warning btn-index pull-right';
     final_button.innerText = 'ОТКРЫТЬ'
 //
     image_div_wrapper.appendChild(final_button);
 
-    return productDOM;
+    return shopDOM;
 }
 
 function filter(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const cat = formData.get('cat')||'';
-    const cit = formData.get('city')||'';
+    const cat = formData.get('cat') || '';
+    const cit = formData.get('city') || '';
     const query = formData.get('q');
     const from = formData.get('qty[from]') || 0;
     const to = formData.get('qty[to]') || Infinity;
 
-    let filtered_products = products.filter(({
-                                                 name,
-                                                 count,
-                                             }) => name.indexOf(query) >= 0 && count >= from && count <= to);
+    let filtered_shops = shops.filter(({
+                                           name,
+                                           count,
+                                       }) => name.indexOf(query) >= 0 && count >= from && count <= to);
     // категории
-    filtered_products = filtered_products.filter(({category= ''}) => clearString(category).toUpperCase().indexOf(clearString(cat).toUpperCase()) >= 0)
+    filtered_shops = filtered_shops.filter(({category = ''}) => clearString(category).toUpperCase().indexOf(clearString(cat).toUpperCase()) >= 0)
 
     //город
-    filtered_products = filtered_products.filter(({city= ''}) => clearString(city).toUpperCase().indexOf(clearString(cit).toUpperCase()) >= 0)
+    filtered_shops = filtered_shops.filter(({city = ''}) => clearString(city).toUpperCase().indexOf(clearString(cit).toUpperCase()) >= 0)
 
-    console.log(filtered_products);
+    console.log(filtered_shops);
 
-    setCatalog('.index-page__products', filtered_products, false);
+    setCatalog('.index-page__shops', filtered_shops, false);
 
 }
 
 
-const clearString =  s => s.replace(/[^a-zа-яё]/gi, '');
+const clearString = s => s.replace(/[^a-zа-яё]/gi, '');

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(localStorage.getItem('saved_product'));
+    console.log(window.getURLParameter('product_id') || (() => window.location = 'products.html')());
+
+    function getURLParameter(sParam) {
+        let s_page_URL = window.location.search.substring(1);
+        let s_URL_Variables = s_page_URL.split('&');
+        for (let i = 0; i < s_URL_Variables.length; i++) {
+            let s_Parameter_Name = s_URL_Variables[i].split('=');
+            if (s_Parameter_Name[0] == sParam) return s_Parameter_Name[1];
+        }
+    }
+</script>
+</body>
+</html>
