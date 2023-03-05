@@ -1,47 +1,3 @@
-const shops = [
-    {
-        id:1,
-        image: 'placeholder',
-        name: "Insane shop 55",
-        parameters: {
-            reliable: true,
-            ready: true,
-            preorder: true
-        },
-        category: 'Марихуана-шишки',
-        type: '',
-        city: 'Абакан',
-        area: '',
-        count: 55,
-        price: 1000,
-    },
-    {
-        id:2,
-        image: 'placeholder',
-        name: "Insane shop 40",
-        parameters: {
-            reliable: true,
-            ready: true,
-            preorder: true
-        },
-        count: 40,
-        price: 2000
-    },
-    {
-        id:3,
-        image: 'placeholder',
-        name: "Insane shop 80",
-        parameters: {
-            reliable: true,
-            ready: true,
-            preorder: true
-        },
-        count: 80,
-        price: 3000
-    }
-]
-
-
 window.onload = () => {
     console.log('it\'s works');
     setCatalog('.index-page__shops', shops, true);
@@ -85,6 +41,8 @@ function generateProduct(shop) {
     const name_icon = document.createElement('a')
     name_icon.title = 'Написать продавцу';
     name_icon.target = '_blank';
+
+
     //TODO Тут в name_icon должна добавляться fa-иконка
 
     name_row.appendChild(name_icon);
@@ -198,6 +156,7 @@ function generateProduct(shop) {
     final_button.innerText = 'ОТКРЫТЬ'
 //
     image_div_wrapper.appendChild(final_button);
+    final_button.href = 'shop.html?' + new URLSearchParams({shop_id: shop.id});
 
     return shopDOM;
 }

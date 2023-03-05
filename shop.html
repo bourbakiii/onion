@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta content="width=device-width, user-scalable=no" name="viewport">
+    <meta content="ГДЕ КЛАД? MEGA - НАДЕЖНЫЙ ДАРКМАРКЕТ. КУПИТЬ ЗАКЛАДКИ В ДАРКНЕТЕ. ОПЛАТА БИТКОИН, МОНЕРО, КИВИ"
+          name="description">
+    <title>MEGA DARKNET MARKET</title>
+
+    <link href="./css/minificated.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/roulette.css" rel="stylesheet">
+    <link href="./css/search.css" rel="stylesheet">
+    <link href="./css/choices.css" rel="stylesheet">
+    <link href="./css/additional.css" rel="stylesheet">
+    <link href="./css/stylesheet.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="scripts/shops.js"></script>
+</head>
+
+<script>
+    // РЕДИРЕКТЫ И ПОИСК НУЖНОГО МАГАЗИНА
+    const url = new URL(document.location.href);
+    let shop_id = url.searchParams.get('shop_id') || -1;
+    const shop = shops.find(el => el.id == +shop_id);
+    if (!shop) document.location.href = 'index.html';
+
+    window.onload = () => {
+        // Вставка содержимого
+        const descriptionDOM = document.querySelector('.shop-desc');
+        descriptionDOM.innerHTML = shop.description || 'Описание магазина';
+
+        const rulesDOM = document.querySelector('.shop-rules');
+        rulesDOM.innerHTML = shop.rules || 'Правила магазина';
+
+        const registrationDOM = document.querySelector('.shop-reg-time span');
+        registrationDOM.innerText = shop.registration_time || '01.01.2023';
+
+        const shop_nameDOM = document.querySelectorAll('.shop-name');
+        shop_nameDOM.forEach(el => el.innerText = shop.name)
+    }
+</script>
+
+
+<body class="">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-text navbar-right navbar-margin pull-right">
+            <a href="#" class="navbar-link navbar-menu hidden-sm hidden-md hidden-lg">Заказы</a>
+            <div class="order-countdown navbar-link">
+                <a href="#" class="navbar-icon" title="Поиск"><i class="fa fa-search" aria-hidden="true"
+                                                                 style="font-size:20px;vertical-align:-3px"></i></a>
+                <a href="#" class="navbar-icon" title="Заказы"><i class="fa fa-shopping-cart" aria-hidden="true"
+                                                                  style="font-size:20px;vertical-align:-3px"></i></a>
+            </div>
+            <a href="#" class="navbar-link navbar-icon " title="Cообщения"><i class="fa fa-envelope" aria-hidden="true"
+                                                                              style="font-size:18px;vertical-align:-2px"></i></a>
+            <a href="#" class="navbar-link navbar-icon" title="Кошелек"><i class="fa fa-bitcoin" aria-hidden="true"
+                                                                           style="font-size:18px;vertical-align:-1px"></i>
+                <span class="white hidden-sm">0.0000</span></a>
+            <a href="#" class="navbar-link navbar-user"><i class="fa fa-user-circle" aria-hidden="true"
+                                                           style="font-size:17px;vertical-align:-1px"></i> <span
+                    class="hidden-xs hidden-sm">ol12700</span></a>
+            <span class="hidden-xs hidden-sm hidden-md">(<a href="#" class="navbar-link">выход</a>)</span>
+        </div>
+        <div class="navbar-header">
+            <a class="brand navbar-brand" href="#" style="line-height:27px !important">///</a>
+            <a class="brand navbar-brand hidden-xs hidden-sm hidden-md" href="#"
+               style="line-height:27px !important"><sub class="shop-name"> Prazdn1k</sub></a>
+        </div>
+        <ul class="nav navbar-nav navbar-collapse collapse pull-left">
+            <li class="active"><a href="#">О магазине</a></li>
+            <li><a href="#">Заказы</a></li>
+            <li><a href="#">Кошелек</a></li>
+            <li><a href="#">Обмен</a></li>
+
+        </ul>
+    </div>
+</nav>
+</script>
+
+
+<div class="index container about_shop">
+    <div class="low row">
+        <div class="col-sm-6">
+            <div class="index-body">
+                <img class="img_about_shop"
+                     src="shop_files/5f4af8095223c3e52a6921ef2781fb12eb2002683e659f30a25287cbbce2.jpg">
+            </div>
+            <h4 class="bold">Описание магазина</h4>
+            <div class="index-body shop-desc" style="margin-bottom:15px;min-height:85px; word-break: break-word;">
+
+            </div>
+
+            <h4 class="bold">Правила магазина</h4>
+            <div class="index-body shop-rules" style="margin-bottom:15px;min-height:85px; word-break: break-word">В
+
+            </div>
+
+            <div class="index-body shop-reg-time">
+                Регистрация <span>08.03.2020</span>
+            </div>
+            <hr class="hr">
+            <div class="index-title">
+                <a href="#" class="pull-right sub-link">
+                    ПОКАЗАТЬ </a>
+                <div class="rw row_center">
+                    <div>Надежный Магазин</div>
+                    <div class="icon_check_wrapper trust"><i class="check"></i></div>
+                </div>
+            </div>
+            <div class="index-body shop-name"></div>
+            <hr class="hr">
+            <div class="index-title">
+                <a href="#" target="_blank" class="pull-right sub-link">
+                    CООБЩЕНИЕ </a>
+                Владелец
+            </div>
+            <div class="index-body">
+                <span class="shop-name"> </span><span
+                    style="color:green !important;font-size:18px;vertical-align:-2px;cursor:pointer"
+                    title="В сети">•</span></div>
+            <hr class="hr">
+        </div>
+        <div class="col-sm-6">
+            <h4 class="bold">Последние отзывы</h4>
+            <hr class="hr">
+            <div class="flex rating bg-hover" style="margin: 0 -0.5rem;">
+                <a class="col-1-2@xs rating-product" href="#">
+                    АМФЕТАМИН <span class="op5">///</span> 2 </a>
+                <div class="col-1-2@xs rating-city text-right op5">
+                    Пермь
+                </div>
+                <div class="col-1-2@xs stars">
+                    <div class="stars" title="5"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i></div>
+                </div>
+                <div class="col-1-2@xs rating-date text-right">
+                    01.03.2023 16:31
+                </div>
+                <div class="col-1@xs rating-body message-body">
+                    <div class="message-text rating-text">Проблема решена,магазин ровный</div>
+                </div>
+            </div>
+            <div class="flex rating bg-hover" style="margin: 0 -0.5rem;">
+                <a class="col-1-2@xs rating-product" href="#">
+                    МЕФЕДРОН ШАМПАНЬ <span class="op5">///</span> 1 </a>
+                <div class="col-1-2@xs rating-city text-right op5">
+                    Санкт-Петербург
+                </div>
+                <div class="col-1-2@xs stars">
+                    <div class="stars" title="5"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i></div>
+                </div>
+                <div class="col-1-2@xs rating-date text-right">
+                    01.03.2023 16:25
+                </div>
+                <div class="col-1@xs rating-body message-body">
+                    <div class="message-text rating-text">Здравствуйте магазин, я брал клад на ломоносвкой а выдало обводный канал, и второе товара на месте не было даже там я пришёл по указанным кординатам увидел сразу нужное место, во первых там была вырвана железка эта сразу туда уже кто то лазел либо этот клад уже кому то выдавался либо его сошкурили других вариантов нету, надеюсь отнесетесь с понимаем и решите проблему, я прошу вернуть средства на мой счёт фото доказательства предоставлю
+                    </div>
+                </div>
+            </div>
+            <div class="flex rating bg-hover" style="margin: 0 -0.5rem;">
+                <a class="col-1-2@xs rating-product" href="#">
+                    МЕФЕДРОН КРИСТАЛЛ <span class="op5">///</span> 5 Мск-Мо </a>
+                <div class="col-1-2@xs rating-city text-right op5">
+                    Москва
+                </div>
+                <div class="col-1-2@xs stars">
+                    <div class="stars" title="5"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i></div>
+                </div>
+                <div class="col-1-2@xs rating-date text-right">
+                    01.03.2023 16:10
+                </div>
+                <div class="col-1@xs rating-body message-body">
+                    <div class="message-text rating-text">Кладмену респект, пусть продолжает в том же духе !</div>
+                </div>
+            </div>
+            <div class="flex rating bg-hover" style="margin: 0 -0.5rem;">
+                <a class="col-1-2@xs rating-product" href="#">
+                    МЕФЕДРОН КРИСТАЛЛ <span class="op5">///</span> 5 Мск-Мо </a>
+                <div class="col-1-2@xs rating-city text-right op5">
+                    Москва
+                </div>
+                <div class="col-1-2@xs stars">
+                    <div class="stars" title="5"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i></div>
+                </div>
+                <div class="col-1-2@xs rating-date text-right">
+                    01.03.2023 15:30
+                </div>
+                <div class="col-1@xs rating-body message-body">
+                    <div class="message-text rating-text">Все отлично и круто!</div>
+                </div>
+            </div>
+            <div class="flex rating bg-hover" style="margin: 0 -0.5rem;">
+                <a class="col-1-2@xs rating-product" href="#">
+                    МЕФЕДРОН КРИСТАЛЛ <span class="op5">///</span> 5 Мск-Мо </a>
+                <div class="col-1-2@xs rating-city text-right op5">
+                    Москва
+                </div>
+                <div class="col-1-2@xs stars">
+                    <div class="stars" title="5"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star"
+                                                                                                 aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i
+                            class="fa fa-star" aria-hidden="true"></i></div>
+                </div>
+                <div class="col-1-2@xs rating-date text-right">
+                    01.03.2023 15:00
+                </div>
+                <div class="col-1@xs rating-body message-body">
+                    <div class="message-text rating-text">Гусь в духовке, минер молодец!</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted pull-right hidden-xs" style="font-size:11px;">
+            <a href="#" style="margin-right:0">BTC</a> <sup>1791624.79</sup> &nbsp;
+            <a href="#" style="margin-right:0">XMR</a> <sup>11495.83</sup>
+        </p>
+        <p class="text-muted" style="font-size:11px">
+            <a href="#">///</a><a href="#">Правила</a> <a href="#">Поддержка</a> <a href="#">Помощь</a></p>
+    </div>
+</footer>
+
+
+<div class="modal" tabindex="-1" id="Modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+        <div class="modal-loader hidden">
+            <div></div>
+            <div class="mega-loader i1">
+            </div>
+            <div class="mega-loader i2">
+            </div>
+            <div class="mega-loader i3">
+            </div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
